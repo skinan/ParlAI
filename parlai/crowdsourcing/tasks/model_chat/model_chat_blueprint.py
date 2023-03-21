@@ -155,9 +155,9 @@ class BaseModelChatBlueprintArgs(ParlAIChatBlueprintArgs):
             "in order to override the parlai parser defaults."
         },
     )
-    emoji_picker: bool = field(
-        default=False,
-        metadata={"help": "Show emoji picker."},
+    allowed_worker_qualification: Optional[str] = field(
+        default=None,
+        metadata="The qualification name for the workers that are exclusively allowed to do the HITs from this task.",
     )
 
 
@@ -299,7 +299,6 @@ class BaseModelChatBlueprint(ParlAIChatBlueprint, ABC):
             "frame_height": 650,
             "final_rating_question": self.args.blueprint.final_rating_question,
             "block_mobile": True,
-            "emoji_picker": self.args.blueprint.emoji_picker,
         }
 
 
